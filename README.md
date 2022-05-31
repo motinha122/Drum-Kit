@@ -2,7 +2,7 @@
 
 <p align="center">
   <h3>
-  Link : Coming soon
+  Link : https://drum-kit-rho-murex.vercel.app
   </h3>
 </p>
 
