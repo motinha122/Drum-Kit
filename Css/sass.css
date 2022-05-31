@@ -47,7 +47,10 @@ h1 {
   padding: 2% 5% 2% 5%;
 }
 
-#drum-set div {
+#drum-set button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: .7rem;
@@ -62,6 +65,9 @@ h1 {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow-y: hidden;
+  overflow-x: hidden;
+  border: none;
+  background-color: white;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(4rem + 5vw);
           flex: 0 0 calc(4rem + 5vw);
