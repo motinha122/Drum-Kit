@@ -1,66 +1,54 @@
-/* Total Number Of Drums*/
+let numbersOfDrums = document.getElementById("drum-set").getElementsByTagName("button").length;
 
-let numbersDrum = document.getElementById("drum-set").getElementsByTagName("button").length;
-
-/* Adds Clickable Event */
-
-for (let i = 0; i < numbersDrum; i++) {
-    document.querySelectorAll("button")[i].addEventListener("click",clickDrum);
+for (let i = 0; i < numbersOfDrums; i++) {
+    document.getElementById("drum-set").querySelectorAll("button")[i].addEventListener("click", function () {
+        playDrum(this.innerText);
+    });
 }
 
-/* Detect Keyboard Buttons*/
-
-document.addEventListener("keydown",(e) =>{
+document.addEventListener("keydown", (e) => {
     playDrum(e.key);
 });
 
-/* Detect Clicked Button */
+function playDrum(input) {
 
-function clickDrum(){
-    let click = this.innerText;
-    playDrum(click);
-}
+    let tom1 = new Audio("sounds/tom-1.mp3");
+    let tom2 = new Audio("sounds/tom-2.mp3");
+    let tom3 = new Audio("sounds/tom-3.mp3");
+    let crash = new Audio("sounds/crash.mp3");
+    let bass = new Audio("sounds/kick-bass.mp3");
+    let snare = new Audio("sounds/snare.mp3");
+    let tom4 = new Audio("sounds/tom-4.mp3");
 
-/* Match Key/Click To Buttons */
-
-function playDrum(input){
     input = input.toLowerCase();
-    animation(input);
-    switch(input) {
+    animationKeyPressed(input);
+
+    switch (input) {
         case "a":
-            let tom1 = new Audio("sounds/tom-1.mp3");
-            tom1.play(); break;
+            tom1.play(); break; 
         case "s":
-            let tom2 = new Audio("sounds/tom-2.mp3");
             tom2.play(); break;
         case "d":
-            let tom3 = new Audio("sounds/tom-3.mp3");
             tom3.play(); break;
         case "f":
-            let crash = new Audio("sounds/crash.mp3");
             crash.play(); break;
         case "j":
-            let bass = new Audio("sounds/kick-bass.mp3");
             bass.play(); break;
         case "k":
-            let snare = new Audio("sounds/snare.mp3");
             snare.play(); break;
         case "l":
-            let tom4 = new Audio("sounds/tom-4.mp3");
             tom4.play(); break;
 
-        default : 
+        default:
     }
 }
 
-/* Button Pressed/Clicked Animation */
-
-function animation(keyPressed){
-    let activeButton = document.getElementById("part-"+keyPressed);
-    if (activeButton != undefined){
+function animationKeyPressed(keyPressed) {
+    let activeButton = document.getElementById("part-" + keyPressed);
+    if (activeButton != undefined) {
         activeButton.style.transform = "scale(0.9)";
-    setTimeout(()=>{
-        activeButton.style.transform = "scale(1.0)";
-    },100)
+        setTimeout(() => {
+            activeButton.style.transform = "scale(1.0)";
+        }, 100)
     }
 }
