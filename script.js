@@ -1,15 +1,31 @@
+/* Total Number Of Drums*/
+
 let numbersDrum = document.getElementById("drum-set").getElementsByTagName("button").length;
 
+/* Adds Clickable Event */
+
 for (let i = 0; i < numbersDrum; i++) {
-    document.querySelectorAll("Button")[i].addEventListener("click",clickDrum);
+    document.querySelectorAll("button")[i].addEventListener("click",clickDrum);
 }
+
+/* Detect Keyboard Buttons*/
 
 document.addEventListener("keydown",(e) =>{
     playDrum(e.key);
 });
 
+/* Detect Clicked Button */
+
+function clickDrum(){
+    let click = this.innerText;
+    playDrum(click);
+}
+
+/* Match Key/Click To Buttons */
+
 function playDrum(input){
     input = input.toLowerCase();
+    animation(input);
     switch(input) {
         case "a":
             let tom1 = new Audio("sounds/tom-1.mp3");
@@ -37,7 +53,14 @@ function playDrum(input){
     }
 }
 
-function clickDrum(){
-    let click = this.innerText;
-    playDrum(click);
+/* Button Pressed/Clicked Animation */
+
+function animation(keyPressed){
+    let activeButton = document.getElementById("part-"+keyPressed);
+    if (activeButton != undefined){
+        activeButton.style.transform = "scale(0.9)";
+    setTimeout(()=>{
+        activeButton.style.transform = "scale(1.0)";
+    },100)
+    }
 }
