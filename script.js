@@ -6,6 +6,10 @@ for (let i = 0; i < numbersOfDrums; i++) {
     });
 }
 
+let variavel = document.getElementById("part-a").innerText;
+
+console.log(variavel);
+
 document.addEventListener("keydown", (e) => {
     playDrum(e.key);
 });
